@@ -64,7 +64,7 @@ function loadMovieInfo(){
 function showMovieInfo(movieInfo){
     movieDetails.innerHTML =`
             <div class="movie-poster">
-                <img src="${movieInfo.Poster}">
+                <img src="${(movieInfo.Poster != "N/A") ? movieInfo.Poster : "image_not_found.png"}" alt = "movie poster">
             </div>
             <div class="movie-info">
                 <h6 class="movie-title">${movieInfo.Title}</h6>
