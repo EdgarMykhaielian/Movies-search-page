@@ -1,0 +1,225 @@
+@use 'reset';
+
+header {
+    height: 80px;
+    display: flex;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    align-items: center;
+    padding-left: 20px;
+
+    i {
+        color: orange;
+        font-style: normal;
+    }
+}
+
+body {
+    background-color: #201E20;
+
+    ._container {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+.search-container {
+    position: relative;
+
+    .search {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            font-size: 40px;
+            color: orange;
+            padding: 50px;
+        }
+
+        input {
+            width: 40%;
+            height: 80px;
+            border: 1px solid orange;
+            font-size: 30px;
+            color: black;
+            padding: 20px;
+        }
+    }
+
+    .search-list {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-height: 400px;
+        cursor: pointer;
+        overflow-y: scroll;
+        z-index: 10;
+        scrollbar-face-color: yellow;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: orange;
+            outline: none;
+            border-radius: 10px;
+        }
+
+        .search-list__item {
+            width: 100%;
+            height: 80px;
+            background-color: black;
+            border: 1px solid black;
+            display: flex;
+            padding: 10px;
+
+            &:hover {
+                background-color: #201E20;
+            }
+
+            .search-list__thumbnail {
+                width: fit-content;
+
+                img {
+                    width: 40px;
+                }
+            }
+
+            .search-list__info {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 20px;
+                color: white;
+
+                p {
+                    font-size: 16px;
+                    color: grey;
+                }
+            }
+        }
+    }
+
+    .hide-search-list {
+        display: none;
+    }
+}
+
+.result-container {
+    padding-top: 50px;
+    height: 60vh;
+    display: flex;
+    margin: 0 auto;
+
+
+    .movie-details {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    .movie-poster {
+        img {
+            height: 100%;
+        }
+    }
+
+    .movie-info {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .movie-title {
+        font-size: 2rem;
+        color: orange;
+    }
+
+    .movie-misc-info {
+        color: white;
+        list-style-type: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .movie-info .year {
+        font-weight: 500;
+    }
+
+    .movie-info .rated {
+        color: #201E20;
+        background-color: orange;
+        padding: 0.4rem;
+        margin: 0 0.4rem;
+        border-radius: 3px;
+        font-weight: 600;
+    }
+
+    .movie-info .released {
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    .movie-info .writer {
+        color: white;
+    }
+
+    .movie-info .genre {
+        background-color: grey;
+        display: inline-block;
+        padding: 0.5rem;
+        border-radius: 3px;
+    }
+
+    .movie-info .plot {
+        max-width: 400px;
+        margin: 1rem auto;
+        color: white;
+    }
+
+    .movie-info .actors {
+        max-width: 400px;
+        color: white;
+    }
+
+    .movie-info .language {
+        color: orange;
+        font-style: italic;
+    }
+
+    .movie-info .awards {
+        font-weight: 300;
+        font-size: 0.9rem;
+        color: white;
+    }
+
+    .movie-info .awards i {
+        color: orange;
+        margin: 1rem 0.7rem 0 0;
+    }
+}
