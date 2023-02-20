@@ -45,10 +45,10 @@ function displayMovieList(movies) {
         `;
         searchList.appendChild(movieListItem)
     }
-    loadMovieDetails();
+    loadMovieInfo();
 }
 
-function loadMovieDetails(){
+function loadMovieInfo(){
     const searchListMovies = searchList.querySelectorAll('.search-list__item');
     searchListMovies.forEach(movie => {
         movie.addEventListener('click', async () => {
@@ -56,7 +56,13 @@ function loadMovieDetails(){
             searchBox.value = '';
             const res = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=63c4f204`);
             const movieInfo = await res.json();
-            movieDetails.innerHTML =`
+            showMovieInfo(movieInfo);
+        })
+    })
+}
+
+function showMovieInfo(movieInfo){
+    movieDetails.innerHTML =`
             <div class="movie-poster">
                 <img src="${movieInfo.Poster}">
             </div>
@@ -78,11 +84,7 @@ function loadMovieDetails(){
                 <p class="awards"><b><i class="fas fa-award"></i></b> ${movieInfo.Awards}</p>
             </div>
             `
-
-        })
-    })
 }
-
 
 
 
