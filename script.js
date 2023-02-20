@@ -5,7 +5,7 @@ const movieDetails = document.getElementById('movie-details')
 searchBox.addEventListener('keyup', findMovies)
 
 async function loadMovies(searchTerm) {
-    const url = `http://www.omdbapi.com/?s=${searchTerm}&apikey=63c4f204`;
+    const url = `https://www.omdbapi.com/?s=${searchTerm}&apikey=63c4f204`;
     const res = await fetch(url);
     const data = await res.json();
     if (data.Response === "True") {
@@ -54,7 +54,7 @@ function loadMovieInfo(){
         movie.addEventListener('click', async () => {
             searchList.classList.add('hide-search-list');
             searchBox.value = '';
-            const res = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=63c4f204`);
+            const res = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=63c4f204`);
             const movieInfo = await res.json();
             showMovieInfo(movieInfo);
         })
@@ -93,7 +93,7 @@ function showMovieInfo(movieInfo){
 
 
 
-//titles: http://www.omdbapi.com/?s=titanic&apikey=63c4f204
+//titles: https://www.omdbapi.com/?s=titanic&apikey=63c4f204
 //details: http://www.omdbapi.com/?i=tt3896198&apikey=63c4f204
 //posters: http://img.omdbapi.com/?s=titanic&apikey=63c4f204
 /* 
